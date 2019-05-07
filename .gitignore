@@ -1,3 +1,9 @@
 .bundle/
 log/*.log
 pkg/
+.rubocop-https*
+/.byebug_history
+tmp/test_prof/*
+/tmp/pids/server.pid
+/coverage
+/spec/dummy/.byebug_history
