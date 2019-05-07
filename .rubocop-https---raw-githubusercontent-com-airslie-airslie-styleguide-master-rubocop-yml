@@ -1,0 +1,274 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+  # Default excludes. Note if a .rubocop.yml in a project dir overrides Exclude then
+  # Rubocop replaces all these defaults rather than merging them.
+  # NB In Rubocop 0.53.0 specifying AllCops/Exclude in here (pulled in via default.yml in the
+  # project) causes an error if is also specified in .rubocop.yml in the project dir.
+  # Really rubocop should merge them. Hey ho.
+  # So for now remove the default Excludes here and add to the projects rubocop.yml.
+  # Exclude:
+  #   - "*.gemspec"
+  #   - "vendor/**/*"
+  #   - "bin/**/*"
+  #   - "lib/tasks/**/*"
+  #   - "db/**/*"
+  #   - "spec/dummy/bin/**/*"
+  #   - "spec/dummy/lib/tasks/**/*"
+  #   - "spec/dummy/db/**/*"
+  #   - "tmp/**/*"
+  #   - "spec/dummy/tmp/**/*"
+  #   - "vendor/bundle/**/*"
+  UseCache: true
+  DisabledByDefault: false
+
+Rails:
+  Enabled: true
+
+Style/Encoding:
+  Enabled: true
+  Exclude:
+    - "db/data_schema.rb"
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+  Exclude:
+    - "db/data_schema.rb"
+
+Layout/ClassStructure:
+  Enabled: true
+
+Lint/MissingCopEnableDirective:
+  Enabled: true
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Performance/RegexpMatch:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: true
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 15
+  Exclude:
+    - "db/**/*"
+
+Metrics/LineLength:
+  Max: 100
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Enabled: true
+  Exclude:
+    - "db/**/*"
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 12
+  Exclude:
+    - "db/**/*"
+
+Metrics/ModuleLength:
+  Enabled: true
+  Max: 100
+  Exclude:
+    - "spec/**/*"
+    - "features/**/*"
+    - "db/**/*"
+
+Rails/HasAndBelongsToMany:
+  Enabled: true
+
+Rails/UniqBeforePluck:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/Validation:
+  Enabled: true
+
+Naming/AccessorMethodName:
+  Enabled: true
+
+Style/Alias:
+  Enabled: false
+
+Layout/AlignArray:
+  Enabled: true
+
+Layout/AlignHash:
+  Enabled: true
+
+Layout/AlignParameters:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: true
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+
+# This causes an error in later versions of rubocop: "obsolete configuration found in .."
+# Layout/FirstParameterIndentation:
+#   Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/LambdaCall:
+  Exclude:
+    - Guardfile
+  Enabled: true
+
+Style/NumericLiterals:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: true
+
+Style/RegexpLiteral:
+  Enabled: true
+
+Style/SignalException:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+  EnforcedStyle: space
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+  - single_quotes
+  - double_quotes
+
+Style/WhenThen:
+  Enabled: true
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: true
+
+Style/NumericPredicate:
+  Enabled: true
+
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - Gemfile
+    - config.ru
+    - Rakefile
+    - Vagrantfile
+    - "db/**/*"
+
+Style/TernaryParentheses:
+  Enabled: true
+
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+
+Style/GuardClause:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%r': '{}'
+    '%w': '()'
+    '%W': '()'
+    '%i': '()'
+    '%I': '()'
+
+# Cucumber worlds often have pairs of domain + web methods that need the same signature.
+Lint/UnusedMethodArgument:
+  Enabled: true
+  Exclude:
+    - features/support/worlds/**/*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: true
+  MinNameLength: 2
+  AllowedNames:
+    - io
+    - id
+    - to
+    - by
+    - 'on'
+    - in
+    - at
+    - ip
+    - q
+
+Style/MixinUsage:
+  Enabled: true
+  Exclude:
+    - "bin/**/*"
+    - "spec/dummy/bin/**/*"
