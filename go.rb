@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: inject httparty as a http_client
 # think about sing methid missing to delegate to parsed_content
 # could have Page and Item include a module that uses method_missing to
@@ -17,11 +19,11 @@ class Page
     @items = items_hash[:Organisations].map do |item_hash|
       Item.new(item_hash)
     end
-    @next_url = response.headers['next-page']
+    @next_url = response.headers["next-page"]
     @total_count = response.headers["x-total-count"].to_i
     @item_count = response.headers["returned-records"].to_i
-    @limit = URI::decode_www_form(response.request.last_uri.query).to_h.fetch("Limit").to_i
-    @offset = URI::decode_www_form(response.request.last_uri.query).to_h["Offset"].to_i
+    @limit = URI.decode_www_form(response.request.last_uri.query).to_h.fetch("Limit").to_i
+    @offset = URI.decode_www_form(response.request.last_uri.query).to_h["Offset"].to_i
   end
 
   def self.next(url)
@@ -45,7 +47,6 @@ class PageTheFirst
     Page.next(next_url)
   end
 end
-
 
 # An organisation built intially from the item in page.items
 # but if item#details is called it will lazily load the extended organisation
@@ -88,7 +89,7 @@ class ItemDetails
     # Generate a structure that is easier to query
     # [{:type=>"tel", :value=>"01484 653326"}, {:type=>"???", :value=>"???"}, ...]
     contacts = Array(contacts).map(&:last).flatten
-    @tel = (contacts.find{ |a| a[:type] == "tel" } || {})[:value]
+    @tel = (contacts.find { |a| a[:type] == "tel" } || {})[:value]
   end
 
   # Note not all address fields are always present
@@ -111,7 +112,7 @@ module NhsApi
       FIRST_PAGE_URLS = {
         practices: "#{BASE_URL}?PrimaryRoleId=RO177&Limit=100",
         branch_surgeries: "#{BASE_URL}?PrimaryRoleId=RO96&Limit=100"
-      }
+      }.freeze
 
       # last_change_date: nil returns all
       def fetch_pages(roles:, **_options)
@@ -140,7 +141,7 @@ module NhsApi
 end
 
 client = NhsApi::Organisations::Client.new
-roles = %i[practices] # branch_surgeries]
+roles = %i(practices) # branch_surgeries]
 client.fetch_pages(roles: roles, last_change_date: nil) do |page|
   page.items.each do |item|
     item.name
