@@ -3,15 +3,15 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "nhs_api/client/version"
+require "nhs_api_client/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "nhs_api-client"
-  spec.version     = NHSApi::Client::VERSION
+  spec.name        = "nhs_api_client"
+  spec.version     = NHSApiClient::VERSION
   spec.authors     = ["Airslie Ltd"]
   spec.email       = ["dev@airslie.com"]
-  spec.homepage    = "https://github.com/airslie/nhs_api-client"
+  spec.homepage    = "https://github.com/airslie/nhs_api_client"
   spec.summary     = "A ruby client for NHS APIs"
   spec.description = "A ruby client for NHS APIs"
   spec.license     = "MIT"

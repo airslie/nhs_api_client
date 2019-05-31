@@ -6,11 +6,8 @@
 # trap snakecase attrs, promote to capitalized and then extract from json
 # could adda Fragment class to handle eg GeoLoc in same way etc
 require "httparty"
-# require 'byebug'
-# require "attr_extras"
 
 # A page of organisation results from the API
-#
 class Page
   attr_reader :next_url, :items, :total_count, :item_count, :limit, :offset
 
