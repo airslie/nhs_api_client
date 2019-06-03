@@ -25,7 +25,7 @@ class ItemDetails
     @addr_ln3 = geo_loc[:AddrLn3]
     @town = geo_loc[:Town]
     @county = geo_loc[:County]
-    @post_code = geo_loc.fetch(:PostCode)
-    @country = geo_loc.fetch(:Country)
+    @post_code = geo_loc[:PostCode]
+    @country = geo_loc[:Country]
   end
 end
