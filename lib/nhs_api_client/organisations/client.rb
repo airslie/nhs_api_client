@@ -11,7 +11,6 @@ module NHSApiClient
                  "&Limit=<page_size>"
       ROLE_CODES = { practices: "RO177", branch_surgeries: "RO96" }.freeze
       DEFAULT_PAGE_SIZE = 100
-      DEFAULT_LAST_CHANGE_DATE = ""
 
       # quit_after is a kill switch that stops processing when the specificed number of
       # records (not pages) have been found. Useful when debugging to avoid hitting the API
@@ -59,8 +58,11 @@ module NHSApiClient
       # organisations - slower as we have to page through all organisations, but there is
       # no other way.
       def extract_last_change_date_from(options)
-        date = options.fetch(:last_change_date, DEFAULT_LAST_CHANGE_DATE)
-        Date.parse(date) < 184.days.ago ? "" : date
+        date = options[:last_change_date]
+        return if date.nil?
+        return if Date.parse(date) < 184.days.ago
+
+        date
       end
     end
   end
