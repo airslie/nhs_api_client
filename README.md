@@ -1,5 +1,5 @@
 # NHSApiClient
-Short description and motivation.
+Experimental client for the NHS ODS (Organisation Data Services) API.
 
 ## Usage
 How to use my plugin.
