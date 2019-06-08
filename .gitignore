@@ -3,3 +3,4 @@ log/*.log
 pkg/
 /.rubocop-https---raw-githubusercontent-com-airslie-airslie-styleguide-master-rubocop-yml
 /.ruby-version
+/.overcommit.yml
