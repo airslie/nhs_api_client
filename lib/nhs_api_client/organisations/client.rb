@@ -16,7 +16,7 @@ module NHSApiClient
       # records (not pages) have been found. Useful when debugging to avoid hitting the API
       # excessively. eg quit_after: 10
       # roles can be an array of symbols or just one
-      def fetch_pages(roles:, **options)
+      def fetch_pages(roles:, options: {})
         Array(roles).each do |role|
           url = initial_url_for(role, **options)
           page = PageTheFirst.new(url)
