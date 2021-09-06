@@ -6,7 +6,7 @@
 class Item
   attr_reader :name, :org_id, :last_change_date, :status, :org_link
 
-  def initialize(**args)
+  def initialize(args = {})
     @name = args.fetch(:Name)
     @org_id = args.fetch(:OrgId)
     @last_change_date = args.fetch(:LastChangeDate)
