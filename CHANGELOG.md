@@ -5,12 +5,30 @@ this [changelog](http://keepachangelog.com/en/0.3.0/).
 This project adheres to Semantic Versioning.
 
 ## Unreleased
+
 ### Added
+
 ### Changed
+
+### Fixed
+
+## 0.1.4
+
+### Added
+
+### Changed
+
+- Loosen Ruby version requirement
+- Loosen Rails version requirement
+
 ### Fixed
 
 ## 0.1.2
+
 ### Added
+
 ### Changed
+
 - Support Ruby 3.x
+
 ### Fixed
