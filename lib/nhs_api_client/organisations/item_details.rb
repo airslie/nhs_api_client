@@ -2,8 +2,7 @@
 
 # Organisation details loaded from An API call
 class ItemDetails
-  attr_reader :tel, :addr_ln1, :addr_ln2, :addr_ln3, :town
-  attr_reader :county, :post_code, :country
+  attr_reader :tel, :addr_ln1, :addr_ln2, :addr_ln3, :town, :county, :post_code, :country
 
   def initialize(args = {})
     build_contacts args[:Contacts]
