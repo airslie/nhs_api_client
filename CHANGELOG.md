@@ -12,6 +12,16 @@ This project adheres to Semantic Versioning.
 
 ### Fixed
 
+## 0.1.5
+
+### Added
+
+### Changed
+- Housekeeping
+- Bump ruby test verison to 3.1.3
+
+### Fixed
+
 ## 0.1.4
 
 ### Added

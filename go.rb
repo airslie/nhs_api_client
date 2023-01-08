@@ -14,7 +14,8 @@ end
 client = NHSApiClient::Organisations::Client.new
 
 # Fetch each page
-client.fetch_pages(roles: :practices, last_change_date: "2019-05-25", page_size: 5, quit_after: 6) do |page|
+client.fetch_pages(roles: :practices, last_change_date: "2019-05-25", page_size: 5,
+                   quit_after: 6) do |page|
   # For each organisation in the page..
   page.items.each do |item|
     # Output it's name...

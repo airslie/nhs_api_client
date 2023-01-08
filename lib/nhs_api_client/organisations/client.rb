@@ -8,7 +8,7 @@ module NHSApiClient
       include HTTParty
       BASE_URL = "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations"\
                  "?PrimaryRoleId=<primary_role_id>"\
-                 "&Limit=<page_size>"
+                 "&Limit=<page_size>".freeze
       ROLE_CODES = { practices: "RO177", branch_surgeries: "RO96" }.freeze
       DEFAULT_PAGE_SIZE = 100
 
